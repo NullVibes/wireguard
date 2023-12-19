@@ -1,0 +1,15 @@
+[Unit]
+Description=Wireguard service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/etc/wireguard/wg-start.sh
+RemainAfterExit=yes
+ExecStop=/etc/wireguard/wg-stop.sh
+
+[Install]
+WantedBy=multi-user.target
